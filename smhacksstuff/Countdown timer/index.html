@@ -2,139 +2,16 @@
 <html>
 
 <head>
-    <style>
-        body {
-            text-align: center;
-            background: #ff7242;
-            font-family: sans-serif;
-            font-weight: 100;
-        }
-
-        h1 {
-            color: #000000;
-            font-weight: 100;
-            font-size: 40px;
-            margin: 40px 0px 20px;
-        }
-
-        #clockdiv {
-            font-family: sans-serif;
-            color: #fff;
-            display: inline-block;
-            font-weight: 100;
-            text-align: center;
-            font-size: 30px;
-        }
-
-        #clockdiv> div {
-            padding: 10px;
-            border-radius: 3px;
-            background: #ff855c;
-            display: inline-block;
-        }
-
-        #clockdiv div> span {
-            padding: 15px;
-            border-radius: 3px;
-            background: #ff5f29;
-            display: inline-block;
-        }
-
-        .unit {
-            padding-top: 5px;
-            font-size: 16px;
-        }
-    </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" />
+    <script src="timer.ts"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>SM Hacks Timer</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cabin,https://fonts.googleapis.com/css?family=Raleway"/>
+    <link rel="stylesheet prefetch" type="text/css" href="timer.css">
 </head>
 
 <body>
-    <script>
-        //Time when hacking ends
-        var end = new Date('08/19/2016 10:00 AM');
-        var _second = 1000;
-        var _minute = _second * 60;
-        var _hour = _minute * 60;
-        var _day = _hour * 24;
-        var timer;
-
-        function showRemaining() {
-            var now = new Date();
-            var distance = end - now;
-            //Vars until hacking ends
-            var days = Math.floor(distance / _day);
-            var hours = Math.floor((distance % _day) / _hour);
-            var minutes = Math.floor((distance % _hour) / _minute);
-            var seconds = Math.floor((distance % _minute) / _second);
-
-            //Vars until hacking starts
-            var d2 = Math.floor((distance - 86400000) / _day);
-            var h2 = Math.floor(((distance - 86400000) % _day) / _hour);
-            var m2 = Math.floor(((distance - 86400000) % _hour) / _minute);
-            var s2 = Math.floor(((distance - 86400000) % _minute) / _second);
-
-            //Give single digit numbers a 0 in front
-            if (days.toString().length == 1) {
-                days = "0" + days;
-            }
-            if (hours.toString().length == 1) {
-                hours = "0" + hours;
-            }
-            if (minutes.toString().length == 1) {
-                minutes = "0" + minutes;
-            }
-            if (seconds.toString().length == 1) {
-                seconds = "0" + seconds;
-            }
-            if (d2.toString().length == 1) {
-                d2 = "0" + d2;
-            }
-            if (h2.toString().length == 1) {
-                h2 = "0" + h2;
-            }
-            if (m2.toString().length == 1) {
-                m2 = "0" + m2;
-            }
-            if (s2.toString().length == 1) {
-                s2 = "0" + s2;
-            }
-
-
-            if (distance > 86400000) {
-
-                document.getElementById("h1").innerHTML = 'Hacking starts in:';
-                document.getElementById('days').innerHTML = d2;
-                document.getElementById('hours').innerHTML = h2;
-                document.getElementById('minutes').innerHTML = m2;
-                document.getElementById('seconds').innerHTML = s2;
-
-            }
-            else if (distance < 0) {
-
-                clearInterval(timer);
-                document.getElementById("h1").innerHTML = 'Hacking is over!';
-                document.getElementById('days').innerHTML = "00";
-                document.getElementById('hours').innerHTML = "00";
-                document.getElementById('minutes').innerHTML = "00";
-                document.getElementById('seconds').innerHTML = "00";
-
-                return;
-            }
-            else {
-
-                document.getElementById("h1").innerHTML = 'Hacking ends in:';
-                document.getElementById('days').innerHTML = days;
-                document.getElementById('hours').innerHTML = hours;
-                document.getElementById('minutes').innerHTML = minutes;
-                document.getElementById('seconds').innerHTML = seconds;
-
-            }
-        }
-
-        timer = setInterval(showRemaining, 1000);
-    </script>
-
     <h1 id="h1"></h1>
     <div id="clockdiv">
         <div>
